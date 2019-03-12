@@ -1,4 +1,4 @@
-# dp6SalesPurchase [ ![Codeship Status for controlinn/dp6SalesPurchase](https://app.codeship.com/projects/1b92d950-b46d-0135-0cca-4ad9978aa83b/status?branch=master)](https://app.codeship.com/projects/258321)
+# dp6SoloRayder [ ![Codeship Status for apprunn/dp6SoloRyder](https://app.codeship.com/projects/1b92d950-b46d-0135-0cca-4ad9978aa83b/status?branch=master)](https://app.codeship.com/projects/258321)
 
 > Servicios web para Solo Ryder app de entrenadores.
 
