@@ -1,14 +1,14 @@
-'use strict';
+"use strict";
 
 function failAction(request, h, error) {
-	const newError = error;
-	newError.reformat();
-	newError.output.payload.code = 'error_validation';
-	return newError;
+  const newError = error;
+  newError.reformat();
+  newError.output.payload.code = "error_validation";
+  return newError;
 }
 
 const methods = {
-	failAction,
+  failAction
 };
 
 module.exports = methods;

@@ -1,15 +1,15 @@
-'use strict';
+"use strict";
 
 /* eslint-disable import/no-extraneous-dependencies */
-const test = require('tape');
-const db = require('./objection');
+const test = require("tape");
+const db = require("./objection");
 
-test('shutdown knex', (assert) => {
-	db.closeConnection(
-		() => {
-			assert.end();
-		},
-		true,
-		false,
-	);
+test("shutdown knex", assert => {
+  db.closeConnection(
+    () => {
+      assert.end();
+    },
+    true,
+    false
+  );
 });

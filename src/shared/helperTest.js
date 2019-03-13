@@ -1,18 +1,18 @@
-'use strict';
+"use strict";
 
-const configServer = require('./../api/server');
+const configServer = require("./../api/server");
 
 function fakeCredentials(data = { cms_companies_id: 101 }) {
-	return data;
+  return data;
 }
 
 function mockServer() {
-	return configServer;
+  return configServer;
 }
 
 const methods = {
-	fakeCredentials,
-	mockServer,
+  fakeCredentials,
+  mockServer
 };
 
 module.exports = methods;
