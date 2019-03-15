@@ -10,7 +10,7 @@ exports.up = knex =>
 		table.text('description').nullable();
 		table.integer('trainer_id').unsigned();
 		table.foreign('trainer_id').references('ms_trainers.id');
-		table.integer('section_id').unsigned();
+		table.integer('section_id').unsigned().nullable();
 		table.foreign('section_id').references('ms_sections.id');
 		helper.defaultColumns(table, false);
 	});
