@@ -6,10 +6,10 @@ exports.up = knex =>
 	knex.schema.createTable('ms_ingredients', (table) => {
 		table.increments().primary();
 		table.text('name').nullable();
-		table.integer('energy').nullable();
-		table.integer('carbs').nullable();
-		table.integer('lips').nullable();
-		table.integer('protein').nullable();
+		table.decimal('energy_value', 18, 2).nullable();
+		table.decimal('carbs_value', 18, 2).nullable();
+		table.decimal('lips_value', 18, 2).nullable();
+		table.decimal('protein_value', 18, 2).nullable();
 		helper.defaultColumns(table, false);
 	});
 
