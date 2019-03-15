@@ -2,8 +2,8 @@
 
 const helper = require('./../src/shared/helperMigration');
 
-exports.up = function (knex) {
-	return knex.schema.createTable('ms_trainers', (table) => {
+exports.up = knex =>
+	knex.schema.createTable('ms_trainers', (table) => {
 		table.increments().primary();
 		table.text('name').nullable();
 		table.text('url_image').nullable();
@@ -12,8 +12,6 @@ exports.up = function (knex) {
 		table.text('facebook_account').nullable();
 		helper.defaultColumns(table, false);
 	});
-};
 
-exports.down = function (knex) {
-	return knex.schema.dropTable('ms_trainers');
-};
+exports.down = knex =>
+	knex.schema.dropTable('ms_trainers');
