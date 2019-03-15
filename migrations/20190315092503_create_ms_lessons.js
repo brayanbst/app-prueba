@@ -1,9 +1,9 @@
 'use strict';
 
-const helper = require('./../src/shared/helperMigration');
+const helper = require('../src/shared/helperMigration');
 
 exports.up = knex =>
-	knex.schema.createTable('ms_class', (table) => {
+	knex.schema.createTable('ms_lessons', (table) => {
 		table.increments().primary();
 		table.text('url_video').nullable();
 		table.text('name').nullable();
@@ -16,4 +16,4 @@ exports.up = knex =>
 	});
 
 exports.down = knex =>
-	knex.schema.dropTable('ms_class');
+	knex.schema.dropTable('ms_lessons');
