@@ -7,9 +7,9 @@ exports.up = knex =>
 		table.increments().primary();
 		table.text('name').nullable();
 		table.text('description').nullable();
-		table.text('is_favorite').nullable();
-		table.integer('ms_sections').unsigned();
-		table.foreign('ms_sections').references('ms_sections.id');
+		table.boolean('is_favorite').nullable();
+		table.integer('section_id').unsigned();
+		table.foreign('section_id').references('ms_sections.id');
 		helper.defaultColumns(table, false);
 	});
 
