@@ -8,10 +8,10 @@ exports.up = knex =>
 		table.text('url_video').nullable();
 		table.text('name').nullable();
 		table.text('description').nullable();
-		table.integer('ms_trainers').unsigned();
-		table.foreign('ms_trainers').references('ms_trainers.id');
-		table.integer('ms_sections').unsigned();
-		table.foreign('ms_sections').references('ms_sections.id');
+		table.integer('trainer_id').unsigned();
+		table.foreign('trainer_id').references('ms_trainers.id');
+		table.integer('section_id').unsigned();
+		table.foreign('sections_id').references('ms_sections.id');
 		helper.defaultColumns(table, false);
 	});
 
