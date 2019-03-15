@@ -7,8 +7,8 @@ exports.up = knex =>
 		table.increments().primary();
 		table.integer('ingredient_id').unsigned();
 		table.foreign('ingredient_id').references('ingredient_id.id');
-		table.integer('dishes_id').unsigned();
-		table.foreign('dishes_id').references('dishes_id.id');
+		table.integer('dish_id').unsigned();
+		table.foreign('dish_id').references('dish_id.id');
 		helper.defaultColumns(table, false);
 	});
 
