@@ -5,10 +5,10 @@ const helper = require('./../src/shared/helperMigration');
 exports.up = knex =>
 	knex.schema.createTable('ms_ingredients_dishes', (table) => {
 		table.increments().primary();
-		table.integer('ms_ingredients').unsigned();
-		table.foreign('ms_ingredients').references('ms_ingredients.id');
-		table.integer('ms_dishes').unsigned();
-		table.foreign('ms_dishes').references('ms_dishes.id');
+		table.integer('ingredient_id').unsigned();
+		table.foreign('ingredient_id').references('ingredient_id.id');
+		table.integer('dishes_id').unsigned();
+		table.foreign('dishes_id').references('dishes_id.id');
 		helper.defaultColumns(table, false);
 	});
 
