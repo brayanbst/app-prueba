@@ -7,9 +7,9 @@ exports.up = knex =>
 		table.increments().primary();
 		table.text('name').nullable();
 		table.decimal('energy_value').nullable();
-		table.decimal('carbs_value').nullable();
-		table.decimal('lips_value').nullable();
-		table.decimal('protein_value').nullable();
+		table.decimal('carbs_value', 18, 2).nullable();
+		table.decimal('lips_value', 18, 2).nullable();
+		table.decimal('protein_value', 18, 2).nullable();
 		helper.defaultColumns(table, false);
 	});
 
