@@ -3,7 +3,7 @@
 const BaseModel = require('./base');
 const helper = require('./helper');
 
-class Lessons extends BaseModel {
+class Lesson extends BaseModel {
 	static get tableName() {
 		return 'ms_lessons';
 	}
@@ -23,6 +23,12 @@ class Lessons extends BaseModel {
 				description: {
 					type: ['string', 'null'],
 				},
+				trainerId: {
+					type: ['integer', 'null'],
+				},
+				sectionId: {
+					type: ['integer', 'null'],
+				},
 				...defaultProperties,
 			},
 		};
@@ -30,7 +36,7 @@ class Lessons extends BaseModel {
 	}
 
 	static defaultColumns(otherColumns = []) {
-		let columns = ['id', 'url_video', 'name', 'description'].map(c => `${this.tableName}.${c}`);
+		let columns = ['id', 'url_video', 'name', 'description', 'trainer_id', 'section_id'].map(c => `${this.tableName}.${c}`);
 
 		columns = columns.concat(otherColumns);
 
@@ -60,4 +66,4 @@ class Lessons extends BaseModel {
 	}
 }
 
-module.exports = Lessons;
+module.exports = Lesson;
