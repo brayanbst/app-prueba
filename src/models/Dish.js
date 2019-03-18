@@ -20,7 +20,7 @@ class Dishes extends baseModel {
 				description: {
 					type: ['string', 'null'],
 				},
-				is_favorite: {
+				isFavorite: {
 					type: ['boolean', 'null'],
 				},
 				...defaultProperties,
