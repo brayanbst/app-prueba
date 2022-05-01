@@ -3,30 +3,27 @@
 const BaseModel = require('./base');
 const helper = require('./helper');
 
-class MsTrainer extends BaseModel {
+class MsContact extends BaseModel {
 	static get tableName() {
-		return 'ms_trainers';
+		return 'ms_contact';
 	}
 
 	static get jsonSchema() {
 		const defaultProperties = helper.defaultFields();
 		const schema = {
 			type: 'object',
-			required: ['name'],
+			required: ['name', 'typeContact'],
 			properties: {
 				name: {
 					type: 'string',
 				},
-				urlImage: {
+				email: {
 					type: ['string', 'null'],
 				},
-				biography: {
-					type: ['string', 'null'],
+				typeContact: {
+					type: ['integer', 'null'],
 				},
-				urlVideo: {
-					type: ['string', 'null'],
-				},
-				facebookAccount: {
+				phone: {
 					type: ['string', 'null'],
 				},
 				...defaultProperties,
@@ -36,7 +33,7 @@ class MsTrainer extends BaseModel {
 	}
 
 	static defaultColumns(otherColumns = []) {
-		let columns = ['id', 'name', 'url_image', 'biography', 'url_video', 'facebook_account'].map(c => `${this.tableName}.${c}`);
+		let columns = ['id', 'name', 'email', 'type_contact', 'phone'].map(c => `${this.tableName}.${c}`);
 
 		columns = columns.concat(otherColumns);
 
@@ -47,8 +44,12 @@ class MsTrainer extends BaseModel {
 		return this.query().insert(data);
 	}
 
-	static getAll(filter = {}) {
-		let query = this.query().select(this.defaultColumns());
+	static getAll(filter = {}, companyId) {
+		let query = this.query()
+			.select(this.defaultColumns())
+			.skipUndefined()
+			.where('ms_contact.type_contact', filter.typeConcat)
+			.where('company_id', companyId);
 		query = this.includePaginationAndSort(query, filter);
 		return query;
 	}
@@ -59,11 +60,19 @@ class MsTrainer extends BaseModel {
 			.where('id', id);
 	}
 
-	static remove(id) {
+	static remove(id, companyId) {
 		return this.query()
 			.softDelete()
-			.where('id', id);
+			.where('id', id)
+			.where('company_id', companyId);
+	}
+
+	static getById(id, companyId) {
+		return this.query()
+			.select(this.defaultColumns())
+			.findById(id)
+			.where('company_id', companyId);
 	}
 }
 
-module.exports = MsTrainer;
+module.exports = MsContact;

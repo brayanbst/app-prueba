@@ -10,7 +10,16 @@ function mockServer() {
 	return configServer;
 }
 
+function createRouteTest(otherProperties = {}) {
+	const route = {
+		credentials: fakeCredentials(),
+		...otherProperties,
+	};
+	return route;
+}
+
 const methods = {
+	createRouteTest,
 	fakeCredentials,
 	mockServer,
 };

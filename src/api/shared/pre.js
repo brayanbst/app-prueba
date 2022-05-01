@@ -1,7 +1,8 @@
 'use strict';
 
 function getCompanyId(request) {
-	return request.auth.credentials.cms_companies_id;
+	console.log('dasdasdasd', 101);
+	return 101;
 }
 
 const methods = {
