@@ -8,7 +8,7 @@ async function handler(request, h) {
 		const data = request.payload;
 		data.companyId = 101;
 		const respons = await MsContact.create(data);
-		console.log('testdd', respons);
+		console.log('tesdddtdd', respons);
 		return h.response(respons).code(201);
 	} catch (error) {
 		return Boom.badImplementation(error, error);
